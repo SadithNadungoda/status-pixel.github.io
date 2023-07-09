@@ -1,0 +1,236 @@
+.router-link {
+    @apply flex;
+    @apply items-center;
+    @apply px-4;
+    @apply py-3;
+    @apply transition;
+    @apply ease-in-out;
+    @apply duration-150;
+    @apply font-medium;
+
+    &:focus {
+        @apply outline-none bg-gray-700;
+    }
+
+    &.router-link-desktop {
+        @apply text-sm leading-5;
+    }
+
+    &.router-link-mobile {
+        @apply text-base leading-6;
+    }
+
+    &.router-link-active,
+    &.router-link-exact-active {
+        @apply text-white bg-gray-900;
+    }
+
+    &:not(.router-link-active),
+    &:not(.router-link-exact-active), {
+        @apply text-gray-300;
+
+        &:hover {
+            @apply text-white bg-gray-700;
+        }
+
+        &:focus {
+            @apply text-white bg-gray-700;
+        }
+    }
+}
+
+.btn {
+    @apply px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md;
+
+    &:focus {
+        @apply outline-none;
+    }
+
+    &.btn-white {
+        @apply border-gray-300 bg-white text-gray-700;
+
+        &:hover {
+            @apply text-gray-500;
+        }
+
+        &:focus {
+            @apply shadow-outline-blue border-blue-300;
+        }
+    }
+
+    &.btn-blue {
+        @apply bg-blue-600 text-white;
+
+        &:hover {
+            @apply bg-blue-500;
+        }
+
+        &:active {
+            @apply bg-blue-700;
+        }
+
+        &:focus {
+            @apply shadow-outline-blue border-blue-700;
+        }
+    }
+
+    &.btn-green {
+        @apply bg-green-600 text-white;
+
+        &:hover {
+            @apply bg-green-500;
+        }
+
+        &:active {
+            @apply bg-green-700;
+        }
+
+        &:focus {
+            @apply shadow-outline-blue border-green-700;
+        }
+    }
+
+    &.btn-red {
+        @apply bg-red-600 text-white;
+
+        &:hover {
+            @apply bg-red-500;
+        }
+
+        &:active {
+            @apply bg-red-700;
+        }
+
+        &:focus {
+            @apply shadow-outline-blue border-red-700;
+        }
+    }
+
+    &.btn-secondary {
+        @apply bg-gray-600 text-white;
+
+        &:hover {
+            @apply bg-gray-500;
+        }
+
+        &:active {
+            @apply bg-gray-700;
+        }
+
+        &:focus {
+            @apply shadow-outline-blue border-gray-700;
+        }
+    }
+}
+
+.pagination-link {
+    @apply relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white transition duration-150 ease-in-out;
+
+    &:not(:disabled) {
+        &:hover {
+            @apply text-gray-500;
+        }
+
+        &:focus {
+            @apply outline-none shadow-outline-blue border-blue-300;
+        }
+
+        &:active {
+            @apply bg-gray-100 text-gray-700;
+        }
+    }
+}
+
+.velmld-overlay {
+    z-index: 35 !important;
+    background-color: rgba(255, 255, 255) !important;
+
+    .velmld-spinner {
+        path {
+            fill: theme('colors.blue.500') !important;
+        }
+    }
+}
+
+.image-input {
+    @apply border bg-white flex justify-center cursor-pointer h-48;
+
+    > img {
+        @apply max-w-full max-h-full p-2;
+    }
+
+    .image-input-render {
+        @apply hidden absolute z-10 bg-gray-900 bg-opacity-50 h-48;
+        right: 15px;
+        left: 15px;
+    }
+
+    @media (min-width: 640px) {
+        .image-input-render {
+            right: 25px;
+            left: 25px;
+        }
+    }
+
+    .image-input-empty {
+        @apply hidden absolute z-10 h-48;
+        right: 15px;
+        left: 15px;
+    }
+
+    @media (min-width: 640px) {
+        .image-input-empty {
+            right: 25px;
+            left: 25px;
+        }
+    }
+
+    .image-input-empty-text {
+        @apply absolute text-gray-700 w-full text-center;
+        top: 45%;
+    }
+
+    .btn-image-preview {
+        @apply absolute uppercase border border-2 border-white text-xs text-white py-0.5 px-1;
+        top: 10px;
+        right: 10px;
+    }
+
+    &.has-preview {
+        &:hover {
+            .image-input-render {
+                @apply inline;
+            }
+        }
+    }
+
+    &:not(.has-preview) {
+        &:hover {
+            background-size: 30px 30px;
+            animation: stripes 2s linear infinite;
+            background-image: linear-gradient(
+                    -45deg,
+                    theme('colors.gray.100') 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    theme('colors.gray.100') 50%,
+                    theme('colors.gray.100') 75%,
+                    transparent 75%,
+                    transparent
+            );
+        }
+
+        .image-input-empty {
+            @apply inline;
+        }
+    }
+}
+
+@keyframes stripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 60px 30px;
+    }
+}
